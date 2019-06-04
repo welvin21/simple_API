@@ -24,9 +24,9 @@ jobs = [
         "shipment_date" : "2019-04-10 05:48:18",
         "distance" : 200
     }
-    
+
 ]
-init_jobs(jobs)
+init_jobs(jobs) #add more jobs data by random generator
 
 bids = [
     {
@@ -46,7 +46,7 @@ bids = [
         "vehicle_name":"Fuso"
     }
 ]
-init_bids(bids)
+init_bids(bids) #add more bids data by random generator
 
 @app.route('/jobs',methods=['GET'])
 def get_jobs():
@@ -76,7 +76,7 @@ def sort_data():
         else:
             jobs_sorted=sel_sort_date(jobs,field,sort_type)
         return jsonify({'jobs (sorted-'+field+'-'+sort_type+')' : jobs_sorted})
-    else : #data=='bids' 
+    else : #data=='bids'
         bids_sorted=sel_sort(bids,field,sort_type)
         return jsonify({'bids (sorted-'+field+'-'+sort_type+')' : bids_sorted})
 
@@ -84,7 +84,3 @@ def sort_data():
 
 if __name__=='__main__':
     app.run(debug=True)
-#api.add_resource(Job, "/user/<string:name>")
-
-#app.run(debug=True)
-    

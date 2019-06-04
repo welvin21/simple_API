@@ -2,6 +2,7 @@ from flask import jsonify
 import random
 import json
 
+#create list of names from the file name.txt
 fstream = open("name.txt")
 name=fstream.read().split('\n')
 fstream.close()
@@ -57,10 +58,3 @@ def init_bids(bids):
         new_bid["price"]=random.randint(1,100)*100000
         new_bid["vehicle_name"]=random.choice(vehicle)
         bids.append(new_bid)
-
-
-
-    
-
-
-
